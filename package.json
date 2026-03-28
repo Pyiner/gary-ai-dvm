@@ -1,0 +1,18 @@
+{
+  "name": "gary-ai-dvm",
+  "version": "1.0.0",
+  "description": "Autonomous AI Data Vending Machine on Nostr (NIP-90) — runs via GitHub Actions",
+  "type": "module",
+  "main": "dvm-worker.mjs",
+  "scripts": {
+    "start": "node dvm-worker.mjs",
+    "test": "echo 'OK'"
+  },
+  "keywords": ["nostr", "dvm", "nip-90", "ai", "lightning", "bitcoin"],
+  "author": "Gary AI",
+  "license": "MIT",
+  "dependencies": {
+    "@noble/secp256k1": "^2.2.0",
+    "ws": "^8.20.0"
+  }
+}

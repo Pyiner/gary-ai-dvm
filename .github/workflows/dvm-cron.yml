@@ -1,0 +1,27 @@
+name: Gary DVM Worker
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'  # Every 15 minutes
+  workflow_dispatch: # Manual trigger
+
+jobs:
+  scan-and-respond:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run DVM Scanner
+        env:
+          NOSTR_SK_HEX: ${{ secrets.NOSTR_SK_HEX }}
+          LNBITS_URL: ${{ secrets.LNBITS_URL }}
+          LNBITS_INVOICE_KEY: ${{ secrets.LNBITS_INVOICE_KEY }}
+        run: node dvm-worker.mjs
