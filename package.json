@@ -12,7 +12,7 @@
   "author": "Gary AI",
   "license": "MIT",
   "dependencies": {
-    "@noble/secp256k1": "^2.2.0",
+    "nostr-tools": "^2.23.3",
     "ws": "^8.20.0"
   }
 }
